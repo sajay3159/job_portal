@@ -1,0 +1,26 @@
+[
+  {
+    "question": "What is Hirrd?",
+    "answer": "Hirrd is an online job portal that connects employers with job seekers. It allows companies to post job listings while enabling users to search, apply, and manage job opportunities easily."
+  },
+  {
+    "question": "How do I post a job?",
+    "answer": "To post a job, simply log in as an employer and head to the 'Post Job' section. Fill out the job details and submit to make your listing live."
+  },
+  {
+    "question": "How can I search for jobs?",
+    "answer": "You can search for jobs using various filters like keywords, location, and job categories. Just use the search bar on the homepage or explore the dedicated job search page."
+  },
+  {
+    "question": "How do I apply for a job?",
+    "answer": "Click on any job listing that interests you, follow the application steps, and submit your resume along with any required documents."
+  },
+  {
+    "question": "Can I save jobs to apply later?",
+    "answer": "Yes! If you want to apply later, just click the 'Save Job' button, and you can access your saved jobs from your profile at any time."
+  },
+  {
+    "question": "How do I track my job applications?",
+    "answer": "Track the status of your job applications through the 'Applications' section in your profile. It provides up-to-date information on each application’s progress."
+  }
+]

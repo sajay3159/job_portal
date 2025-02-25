@@ -1,8 +1,16 @@
 import { Button } from "@/components/ui/button";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+} from "@/components/ui/carousel";
 import React from "react";
 import { Link } from "react-router-dom";
-import companies from '../data/companies.json'
+import companies from "../data/companies.json";
+import faqs from "../data/faq.json";
+import Autoplay from "embla-carousel-autoplay";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const LandingPage = () => {
     return (
@@ -24,28 +32,73 @@ const LandingPage = () => {
                 </p>
             </section>
             <div className="flex gap-6 justify-center">
-                <Link to='/jobs'>
-                    <Button variant="blue" size="xl">Find Jobs </Button>
+                <Link to="/jobs">
+                    <Button variant="blue" size="xl">
+                        Find Jobs{" "}
+                    </Button>
                 </Link>
-                <Link to='/post-job'>
-                    <Button variant="destructive" size="xl">Post a Job </Button>
+                <Link to="/post-job">
+                    <Button variant="destructive" size="xl">
+                        Post a Job{" "}
+                    </Button>
                 </Link>
             </div>
             {/* carousel */}
             <Carousel
                 className="w-full py-10"
+                plugins={[
+                    Autoplay({
+                        delay: 2000,
+                    }),
+                ]}
             >
-                <CarouselContent>
+                <CarouselContent className="flex gap-5 sm:gap-20 items-center">
                     {companies.map(({ name, id, path }) => {
-                        return (<CarouselItem key={id}>
-                            <img src={path} alt={name} />
-                        </CarouselItem>)
+                        return (
+                            <CarouselItem key={id} className="basis-1/3 lg:basis-1/6">
+                                <img
+                                    src={path}
+                                    alt={name}
+                                    className="h-9 sm:h-14 object-contain"
+                                />
+                            </CarouselItem>
+                        );
                     })}
                 </CarouselContent>
             </Carousel>
             {/* banner */}
-            <section>{/* card */}</section>
+            <img src="/banner.jpeg" className="w-full" />
+
+            {/* card */}
+            <section className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <Card>
+                    <CardHeader>
+                        <CardTitle>For Job Seekers</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <p>Search and apply for jobs, track applications, and more.</p>
+                    </CardContent>
+                </Card>
+                <Card>
+                    <CardHeader>
+                        <CardTitle>For Employers</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <p>Post jobs, manage applications, and find the best candidates.</p>
+                    </CardContent>
+                </Card>
+            </section>
             {/* Accordion */}
+            <Accordion type="single" collapsible>
+                {faqs.map((faq, index) => {
+                    return (
+                        <AccordionItem key={index} value={`item-${index + 1}`}>
+                            <AccordionTrigger>{faq.question}</AccordionTrigger>
+                            <AccordionContent>{faq.answer}</AccordionContent>
+                        </AccordionItem>
+                    )
+                })}
+            </Accordion>
         </main>
     );
 };
