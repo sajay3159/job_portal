@@ -58,9 +58,14 @@
 }
 @layer utilities {
   .gradient {
-    @apply bg-grient-to-br from-gray-500 via-gray-200 to-white;
+    @apply bg-gradient-to-br from-gray-500 via-gray-200 to-white;
+  }
+
+  .gradient-title {
+    @apply gradient text-transparent bg-clip-text;
   }
 }
+
 /* 39.24 */
 @layer base {
   * {
