@@ -7,7 +7,7 @@ const JobListing = () => {
     const { session } = useSession();
 
     const fetchJobs = async () => {
-        superbaseAccessToken = await session.getToken({
+        const superbaseAccessToken = await session.getToken({
             template: 'supabase'
         });
         const data = await getJobs(superbaseAccessToken);
